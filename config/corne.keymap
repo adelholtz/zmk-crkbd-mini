@@ -61,9 +61,9 @@
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp N1       &kp N2        &kp N3             &kp N4           &kp N5           &kp N6   &kp N7        &kp N8       &kp N9        &kp N0
+   &kp ESC       &kp trans        &kp trans        &kp END       &kp HOME           &kp N6   &kp N7        &kp N8       &kp N9        &kp N0
    &hm LGUI N0  &hm LSHFT N4  &hm LALT UP_ARROW  &hm LCTRL DEL    &kp PAGE_UP      &kp N0   &hm RCTRL N4  &hm RALT N5  &hm RSHFT N6  &hm RGUI PAGE_UP
-   &trans       &kp LEFT      &kp DOWN           &kp RIGHT_ARROW  &kp PAGE_DOWN    &trans   &kp N1        &kp N2       &kp N3        &kp PAGE_DOWN
+   &DEL       &kp LEFT      &kp DOWN           &kp RIGHT_ARROW  &kp PAGE_DOWN    &trans   &kp N1        &kp N2       &kp N3        &kp PAGE_DOWN
                                     &kp LGUI           &trans           &kp SPACE        &kp RET  &trans        &trans
                         >;
                 };
@@ -87,7 +87,7 @@
                         bindings = <
    &kp F1        &kp F2         &kp F3        &kp F4      &kp F5            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
    &hm LGUI F11  &hm LSHFT F12  &trans        &trans      &studio_unlock            &trans  &trans  &trans  &trans  &trans
-   &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_CLR  &bt BT_CLR_ALL    &trans  &trans  &trans  &trans  &bootloader
+   &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_CLR  &bt BT_CLR_ALL    &CAPS  &trans  &trans  &trans  &bootloader
                            &trans        &trans      &trans            &trans  &trans  &trans
                         >;     
 
