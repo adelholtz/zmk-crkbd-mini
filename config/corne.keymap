@@ -61,7 +61,7 @@
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp ESC       &kp trans        &trans        &kp END       &kp HOME           &kp N6   &kp N7        &kp N8       &kp N9        &kp N0
+   &kp ESC       &trans        &trans        &kp END       &kp HOME           &kp N6   &kp N7        &kp N8       &kp N9        &kp N0
    &hm LGUI A  &hm LSHFT S  &hm LALT UP_ARROW  &hm LCTRL DEL    &kp PAGE_UP      &kp N0   &hm RCTRL N4  &hm RALT N5  &hm RSHFT N6  &hm RGUI PAGE_UP
    &kp DEL       &kp LEFT      &kp DOWN           &kp RIGHT_ARROW  &kp PAGE_DOWN    &trans   &kp N1        &kp N2       &kp N3        &kp PAGE_DOWN
                                     &kp LGUI           &trans           &kp SPACE        &kp RET  &trans        &trans
