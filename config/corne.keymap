@@ -1,7 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/pointing.h>
 
 #define DEF 0
 #define NAV 1
@@ -48,6 +47,22 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
+        };
+
+        esc_q: esc_q {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ESC_Q";
+            #binding-cells = <0>;
+            bindings = <&kp Q>, <&kp ESCAPE>;
+        };
+
+        space_tab: space_tab {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SPACE_TAB";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp TAB>;
+
+            tapping-term-ms = <175>;
         };
     };
 
@@ -184,10 +199,10 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&trans  &kp Q  &kp W  &kp F       &kp P        &kp G             &kp J            &kp L        &kp U          &kp Y       &kp P      &trans
-&trans  &kp A  &kp R  &hm LALT S  &hm LCTRL T  &hm LEFT_WIN D    &hm RIGHT_WIN H  &hm RCTRL N  &hm RCTRL E    &kp I       &kp O      &trans
-&trans  &kp Z  &kp X  &kp C       &kp V        &kp B             &kp K            &kp M        &kp COMMA      &kp PERIOD  &kp MINUS  &trans
-                      &kp LGUI    &mo 1        &kp SPACE         &kp RET          &lt 2 TAB    &kp BACKSPACE
+&trans  &esc_q  &kp W  &kp F       &kp P    &kp G             &kp J            &kp L    &kp U          &kp Y       &mo 3      &trans
+&trans  &kp A   &kp R  &hm LALT S  &lt 4 T  &hm LEFT_WIN D    &hm RIGHT_WIN H  &lt 4 N  &hm RCTRL E    &kp I       &kp O      &trans
+&trans  &kp Z   &kp X  &kp C       &kp V    &kp B             &kp K            &kp M    &kp COMMA      &kp PERIOD  &kp MINUS  &trans
+                       &kp LGUI    &mo 1    &space_tab        &sk RIGHT_SHIFT  &mo 2    &kp BACKSPACE
             >;
         };
 
@@ -201,10 +216,10 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&trans  &kp ESC     &trans       &trans             &kp END          &kp HOME         &kp N6   &kp N7        &kp N8       &kp N9        &kp N0            &trans
-&trans  &hm LGUI A  &hm LSHFT S  &hm LALT UP_ARROW  &hm LCTRL DEL    &kp PAGE_UP      &kp N0   &hm RCTRL N4  &hm RALT N5  &hm RSHFT N6  &hm RGUI PAGE_UP  &trans
-&trans  &kp DEL     &kp LEFT     &kp DOWN           &kp RIGHT_ARROW  &kp PAGE_DOWN    &trans   &kp N1        &kp N2       &kp N3        &kp PAGE_DOWN     &trans
-                                 &kp LGUI           &trans           &kp SPACE        &kp RET  &mo 3         &trans
+&trans  &kp ESCAPE  &kp PAGE_UP  &kp UP_ARROW  &kp PAGE_DOWN  &none         &none          &kp N7        &kp N8        &kp N9        &none  &trans
+&trans  &kp HOME    &kp LEFT     &kp DOWN      &kp RIGHT      &kp END       &kp ASTERISK   &hm RCTRL N4  &hm RALT N5   &hm RSHFT N6  &none  &trans
+&trans  &none       &none        &none         &none          &none         &kp PLUS       &kp N1        &kp N2        &kp N3        &none  &trans
+                                 &kp LGUI      &trans         &kp DELETE    &kp BACKSPACE  &mo 3         &kp NUMBER_0
             >;
         };
 
@@ -218,10 +233,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp EXCL  &kp AT          &kp HASH           &kp DLLR         &kp PRCNT    &kp CARET  &kp AMPS         &kp ASTRK      &kp LEFT_PARENTHESIS  &kp RPAR       &trans
-&trans  &trans    &trans          &hm LALT UP_ARROW  &hm LCTRL SQT    &kp GRAVE    &kp MINUS  &hm RCTRL EQUAL  &hm RALT LBKT  &hm RSHFT RBKT        &hm RGUI BSLH  &trans
-&trans  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW     &kp RIGHT_ARROW  &kp TILDE    &kp UNDER  &kp PLUS         &kp LBRC       &kp RBRC              &kp PIPE       &trans
-                                  &kp LGUI           &mo 3            &kp SPACE    &kp RET    &trans           &trans
+&trans  &trans     &kp CARET    &kp HASH         &kp GRAVE          &kp PRCNT     &none          &kp NON_US_BACKSLASH  &kp ASTERISK  &none     &none     &trans
+&trans  &kp EQUAL  &kp PERCENT  &kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp DOLLAR    &kp AMPERSAND  &kp SLASH             &kp QUESTION  &kp HASH  &kp PIPE  &trans
+&trans  &none      &none        &none            &kp SQT            &none         &none          &none                 &none         &none     &none     &trans
+                                &none            &mo 3              &kp DELETE    &kp BACKSPACE  &trans                &trans
             >;
         };
 
@@ -238,10 +253,10 @@
         EXTRA {
             display-name = "Extra";
             bindings = <
-&trans  &trans  &trans          &trans          &trans           &msc SCRL_UP      &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans          &mmv MOVE_UP    &trans           &msc SCRL_DOWN    &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
-&trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans            &trans  &trans     &trans     &trans  &trans  &trans
-                                &trans          &trans           &trans            &trans  &trans     &trans
+&trans  &none  &none           &none             &kp LESS_THAN         &none        &none      &kp GREATER_THAN       &none              &none            &none  &trans
+&trans  &none  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &none        &none      &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &none  &trans
+&trans  &none  &none           &none             &none                 &none        &none      &none                  &none              &none            &none  &trans
+                               &trans            &trans                &kp SPACE    &kp ENTER  &trans                 &trans
             >;
         };
     };
