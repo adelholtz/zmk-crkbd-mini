@@ -1,0 +1,11 @@
+description: Adelholtz custom behavior for process_record_user
+
+compatible: "zmk,behavior-adelholtz-process-record-user"
+
+include: [behavior.yaml]
+
+properties:
+  "#binding-cells":
+    type: int
+    required: true
+    const: 1

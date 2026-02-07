@@ -1,0 +1,9 @@
+menu "ZMK CRKBD Mini"
+
+config ZMK_BEHAVIOR_ADELHOLTZ
+    bool "Enable Adelholtz custom behavior"
+    default y
+    help
+      Enable the custom ZMK behavior used by the corne keymap.
+
+endmenu
