@@ -5,6 +5,7 @@
 // ZMK setup as needed.
 
 #include <zephyr/kernel.h>
+#include <zephyr/devicetree.h>
 #include <drivers/behavior.h>
 #include <zmk/behavior.h>
 
@@ -130,6 +131,9 @@ static int behavior_apr_init(const struct device *dev) {
     return 0;
 }
 
-BEHAVIOR_DT_INST_DEFINE(0, behavior_apr_init, NULL, NULL, NULL,
-                        POST_KERNEL, CONFIG_KERNEL_INIT_PRIORITY_DEFAULT,
-                        &behavior_apr_driver_api);
+#define APR_INST_DEFINE(inst)                                                                 \
+    BEHAVIOR_DT_INST_DEFINE(inst, behavior_apr_init, NULL, NULL, NULL,                         \
+                            POST_KERNEL, CONFIG_KERNEL_INIT_PRIORITY_DEFAULT,                 \
+                            &behavior_apr_driver_api)
+
+DT_INST_FOREACH_STATUS_OKAY(APR_INST_DEFINE)
