@@ -18,12 +18,6 @@
 #define ADELHOLTZ_GREATER 7
 #define ADELHOLTZ_LBRACKET 8
 #define ADELHOLTZ_RBRACKET 9
-#define ADELHOLTZ_GAME 10
-#define ADELHOLTZ_COLEMAK 11
-#define ADELHOLTZ_NAV_LMAGIC 12
-#define ADELHOLTZ_XTRA_RMAGIC 13
-
-
 
 / {
     behaviors {
@@ -222,7 +216,7 @@
             bindings = <
 &trans  &esc_q  &kp W  &kp F       &kp P    &kp G             &kp J            &kp L    &kp U          &kp Y       &mo 3      &trans
 &trans  &kp A   &kp R  &hm LALT S  &lt 4 T  &hm LEFT_WIN D    &hm RIGHT_WIN H  &lt 4 N  &hm RCTRL E    &kp I       &kp O      &trans
-&trans  &kp Z   &kp X  &kp C       &kp V    &kp B             &kp K            &kp M    &kp COMMA      &kp PERIOD  &kp MINUS  &trans
+&trans  &kp Z   &kp X  &kp C       &kp V    &kp B             &kp K            &kp M    &kp DE_COMMA      &kp DE_PERIOD  &kp DE_MINUS  &trans
                        &kp LGUI    &mo 1    &space_tab        &sk RIGHT_SHIFT  &mo 2    &kp BACKSPACE
             >;
         };
@@ -239,7 +233,7 @@
             bindings = <
 &trans  &kp ESCAPE  &kp PAGE_UP  &kp UP_ARROW  &kp PAGE_DOWN  &none         &none             &kp N7  &kp N8   &kp N9  &none  &trans
 &trans  &kp HOME    &kp LEFT     &kp DOWN      &kp RIGHT      &kp END       &kp DE_ASTERISK   &kp N4  &kp N5   &kp N6  &none  &trans
-&trans  &none       &none        &none         &none          &none         &kp DE_PLUS       &kp N1  &kp N2   &kp N3  &none  &trans
+&trans  &none       &none        &none         &none          &none         &kp DE_PLUS       &kp N1  &kp N2   &kp N3  &kp DE_SZ  &trans
                                  &none      &trans         &kp DELETE    &kp BACKSPACE     &mo 3   &kp NUMBER_0
             >;
         };
@@ -254,9 +248,9 @@
             //            |     |     | DEL |   | BSPC |     |    |
 
             bindings = <
- &trans  &trans        &kp DE_CARET       &kp DE_DEGREE    &kp DE_GRAVE          &kp DE_PRCNT  &none             &adelholtz_process_record_user ADELHOLTZ_BACKSLASH  &kp DE_ASTERISK  &none        &none        &trans
-  &trans  &kp DE_EQUAL  &kp DE_PERCENT  &kp DE_EXCLAMATION  &kp DE_DOUBLE_QUOTES  &kp DOLLAR    &kp DE_AMPERSAND  &kp DE_SLASH      &kp DE_QUESTION  &kp DE_HASH  &adelholtz_process_record_user ADELHOLTZ_PIPE  &trans
-&trans  &none         &none           &none               &kp DE_SQT            &kp DE_EURO   &none             &none             &none            &none        &none        &trans
+ &trans  &trans        &kp DE_CARET       &kp DE_DEGREE    &kp DE_GRAVE          &kp DE_PRCNT  &none             &adelholtz_process_record_user  ADELHOLTZ_BACKSLASH  &kp DE_ASTERISK  &none        &none        &trans
+ &trans  &kp DE_EQUAL  &kp DE_PERCENT  &kp DE_EXCLAMATION  &kp DE_DOUBLE_QUOTES  &kp DOLLAR    &kp DE_AMPERSAND  &kp DE_SLASH      &kp DE_QUESTION  &kp DE_HASH  &adelholtz_process_record_user  ADELHOLTZ_PIPE  &trans
+ &trans  &kp DE_A_UMLAUT         &kp DE_O_UMLAUT           &kp DE_U_UMLAUT               &kp DE_SQT            &kp DE_EURO   &none             &none             &none            &none        &none        &trans
                                 &none            &none              &kp DELETE    &kp BACKSPACE  &none                &none
             >;
         };
@@ -281,8 +275,8 @@
             //            |     |     | Space |   | Enter |     |    |
 
             bindings = <
- &trans  &none  &none              &none                &adelholtz_process_record_user ADELHOLTZ_LESS         &none        &none      &adelholtz_process_record_user ADELHOLTZ_GREATER       &none                 &none               &none  &trans
- &trans  &none  &adelholtz_process_record_user ADELHOLTZ_LCURLY  &adelholtz_process_record_user ADELHOLTZ_LBRACKET  &kp DE_LEFT_PARENTHESIS  &none        &none      &kp DE_RIGHT_PARENTHESIS  &adelholtz_process_record_user ADELHOLTZ_RBRACKET  &adelholtz_process_record_user ADELHOLTZ_RCURLY  &none  &trans
+ &trans  &none  &none              &none                &adelholtz_process_record_user  ADELHOLTZ_LESS         &none        &none      &adelholtz_process_record_user  ADELHOLTZ_GREATER       &none                 &none               &none  &trans
+ &trans  &none  &adelholtz_process_record_user  ADELHOLTZ_LCURLY  &adelholtz_process_record_user  ADELHOLTZ_LBRACKET  &kp DE_LEFT_PARENTHESIS  &none        &none      &kp DE_RIGHT_PARENTHESIS  &adelholtz_process_record_user  ADELHOLTZ_RBRACKET  &adelholtz_process_record_user  ADELHOLTZ_RCURLY  &none  &trans
 &trans  &none  &none              &none                &none                    &none        &none      &none                     &none                 &none               &none  &trans
                                &trans            &trans                &kp SPACE    &kp ENTER  &trans                 &trans
             >;

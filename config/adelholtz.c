@@ -22,29 +22,7 @@ enum adelholtz_custom_keycode {
     ADELHOLTZ_GREATER,
     ADELHOLTZ_LBRACKET,
     ADELHOLTZ_RBRACKET,
-    ADELHOLTZ_GAME,
-    ADELHOLTZ_COLEMAK,
-    ADELHOLTZ_NAV_LMAGIC,
-    ADELHOLTZ_XTRA_RMAGIC,
 };
-
-// ----- Optional layer IDs (override via build system if needed) -----
-#ifndef ADELHOLTZ_LAYER_GAME
-#define ADELHOLTZ_LAYER_GAME 0
-#endif
-
-#ifndef ADELHOLTZ_LAYER_COLEMAK
-#define ADELHOLTZ_LAYER_COLEMAK 0
-#endif
-
-// ----- Optional RGB "mode" IDs (override via build system if needed) -----
-#ifndef ADELHOLTZ_RGB_MODE_GAME
-#define ADELHOLTZ_RGB_MODE_GAME 0
-#endif
-
-#ifndef ADELHOLTZ_RGB_MODE_COLEMAK
-#define ADELHOLTZ_RGB_MODE_COLEMAK 0
-#endif
 
 // ----- Host OS detection shim -----
 enum adelholtz_host_os {
@@ -66,16 +44,6 @@ __attribute__((weak)) int adelholtz_send_string(const char *str) {
     return -ENOTSUP;
 }
 
-__attribute__((weak)) int adelholtz_layer_move(uint8_t layer) {
-    ARG_UNUSED(layer);
-    return -ENOTSUP;
-}
-
-__attribute__((weak)) int adelholtz_rgb_mode(uint8_t mode) {
-    ARG_UNUSED(mode);
-    return -ENOTSUP;
-}
-
 // ----- Keycode history (last 3) -----
 static uint16_t last_keycodes[3] = {0, 0, 0};
 
@@ -83,10 +51,6 @@ static void update_keycode_history(uint16_t keycode) {
     last_keycodes[2] = last_keycodes[1];
     last_keycodes[1] = last_keycodes[0];
     last_keycodes[0] = keycode;
-}
-
-static bool should_skip_history(uint16_t keycode) {
-    return keycode == ADELHOLTZ_NAV_LMAGIC || keycode == ADELHOLTZ_XTRA_RMAGIC;
 }
 
 static int send_os_string(const char *mac_ios, const char *linux_win, const char *fallback) {
@@ -107,10 +71,6 @@ static int on_keymap_binding_pressed(const struct device *dev,
     ARG_UNUSED(event);
 
     uint16_t keycode = (uint16_t)binding->param1;
-
-    if (!should_skip_history(keycode)) {
-        update_keycode_history(keycode);
-    }
 
     switch (keycode) {
         case ADELHOLTZ_RELOAD:
@@ -156,16 +116,6 @@ static int on_keymap_binding_pressed(const struct device *dev,
         case ADELHOLTZ_GREATER:
             // QMK: mac/ios => ">"; linux/windows => ">"
             send_os_string(">", ">", "");
-            return ZMK_BEHAVIOR_OPAQUE;
-
-        case ADELHOLTZ_GAME:
-            adelholtz_layer_move(ADELHOLTZ_LAYER_GAME);
-            adelholtz_rgb_mode(ADELHOLTZ_RGB_MODE_GAME);
-            return ZMK_BEHAVIOR_OPAQUE;
-
-        case ADELHOLTZ_COLEMAK:
-            adelholtz_layer_move(ADELHOLTZ_LAYER_COLEMAK);
-            adelholtz_rgb_mode(ADELHOLTZ_RGB_MODE_COLEMAK);
             return ZMK_BEHAVIOR_OPAQUE;
 
         default:
