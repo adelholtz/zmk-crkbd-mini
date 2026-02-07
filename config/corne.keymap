@@ -75,9 +75,10 @@
 
             tapping-term-ms = <175>;
         };
-        adelholtz_pru: adelholtz_pru {
-            compatible = "zmk,behavior-adelholtz-pru";
+        apr: apr {
+            compatible = "zmk,apr";
             #binding-cells = <1>;
+            label = "APR";
         };
     };
 
@@ -248,8 +249,8 @@
             //            |     |     | DEL |   | BSPC |     |    |
 
             bindings = <
-  &trans  &trans        &kp DE_CARET       &kp DE_DEGREE    &kp DE_GRAVE          &kp DE_PRCNT  &none             &adelholtz_pru  ADELHOLTZ_BACKSLASH  &kp DE_ASTERISK  &none        &none        &trans
-  &trans  &kp DE_EQUAL  &kp DE_PERCENT  &kp DE_EXCLAMATION  &kp DE_DOUBLE_QUOTES  &kp DOLLAR    &kp DE_AMPERSAND  &kp DE_SLASH      &kp DE_QUESTION  &kp DE_HASH  &adelholtz_pru  ADELHOLTZ_PIPE  &trans
+  &trans  &trans        &kp DE_CARET       &kp DE_DEGREE    &kp DE_GRAVE          &kp DE_PRCNT  &none             &apr  ADELHOLTZ_BACKSLASH  &kp DE_ASTERISK  &none        &none        &trans
+  &trans  &kp DE_EQUAL  &kp DE_PERCENT  &kp DE_EXCLAMATION  &kp DE_DOUBLE_QUOTES  &kp DOLLAR    &kp DE_AMPERSAND  &kp DE_SLASH      &kp DE_QUESTION  &kp DE_HASH  &apr  ADELHOLTZ_PIPE  &trans
  &trans  &kp DE_A_UMLAUT         &kp DE_O_UMLAUT           &kp DE_U_UMLAUT               &kp DE_SQT            &kp DE_EURO   &none             &none             &none            &none        &none        &trans
                                 &none            &none              &kp DELETE    &kp BACKSPACE  &none                &none
             >;
@@ -275,8 +276,8 @@
             //            |     |     | Space |   | Enter |     |    |
 
             bindings = <
-  &trans  &none  &none              &none                &adelholtz_pru  ADELHOLTZ_LESS         &none        &none      &adelholtz_pru  ADELHOLTZ_GREATER       &none                 &none               &none  &trans
-  &trans  &none  &adelholtz_pru  ADELHOLTZ_LCURLY  &adelholtz_pru  ADELHOLTZ_LBRACKET  &kp DE_LEFT_PARENTHESIS  &none        &none      &kp DE_RIGHT_PARENTHESIS  &adelholtz_pru  ADELHOLTZ_RBRACKET  &adelholtz_pru  ADELHOLTZ_RCURLY  &none  &trans
+  &trans  &none  &none              &none                &apr  ADELHOLTZ_LESS         &none        &none      &apr  ADELHOLTZ_GREATER       &none                 &none               &none  &trans
+  &trans  &none  &apr  ADELHOLTZ_LCURLY  &apr  ADELHOLTZ_LBRACKET  &kp DE_LEFT_PARENTHESIS  &none        &none      &kp DE_RIGHT_PARENTHESIS  &apr  ADELHOLTZ_RBRACKET  &apr  ADELHOLTZ_RCURLY  &none  &trans
 &trans  &none  &none              &none                &none                    &none        &none      &none                     &none                 &none               &none  &trans
                                &trans            &trans                &kp SPACE    &kp ENTER  &trans                 &trans
             >;

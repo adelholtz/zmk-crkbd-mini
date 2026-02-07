@@ -1,6 +1,6 @@
 description: Adelholtz custom behavior for process_record_user
 
-compatible: "zmk,behavior-adelholtz-pru"
+compatible: "zmk,apr"
 
 include: [behavior.yaml]
 

@@ -8,7 +8,7 @@
 #include <drivers/behavior.h>
 #include <zmk/behavior.h>
 
-#define DT_DRV_COMPAT zmk_behavior_adelholtz_pru
+#define DT_DRV_COMPAT zmk_apr
 
 // ----- Custom key identifiers passed via binding parameter -----
 // These values are behavior-specific and should match the values you use
@@ -120,16 +120,16 @@ static int on_keymap_binding_released(struct zmk_behavior_binding *binding,
     return ZMK_BEHAVIOR_OPAQUE;
 }
 
-static const struct behavior_driver_api behavior_adelholtz_pru_driver_api = {
+static const struct behavior_driver_api behavior_apr_driver_api = {
     .binding_pressed = on_keymap_binding_pressed,
     .binding_released = on_keymap_binding_released,
 };
 
-static int behavior_adelholtz_pru_init(const struct device *dev) {
+static int behavior_apr_init(const struct device *dev) {
     ARG_UNUSED(dev);
     return 0;
 }
 
-BEHAVIOR_DT_INST_DEFINE(0, behavior_adelholtz_pru_init, NULL, NULL, NULL,
+BEHAVIOR_DT_INST_DEFINE(0, behavior_apr_init, NULL, NULL, NULL,
                         POST_KERNEL, CONFIG_KERNEL_INIT_PRIORITY_DEFAULT,
-                        &behavior_adelholtz_pru_driver_api);
+                        &behavior_apr_driver_api);
