@@ -9,6 +9,22 @@
 #define ADJ 3
 #define EXTRA 4
 
+#define ADELHOLTZ_RELOAD 1
+#define ADELHOLTZ_LCURLY 2
+#define ADELHOLTZ_RCURLY 3
+#define ADELHOLTZ_PIPE 4
+#define ADELHOLTZ_BACKSLASH 5
+#define ADELHOLTZ_LESS 6
+#define ADELHOLTZ_GREATER 7
+#define ADELHOLTZ_LBRACKET 8
+#define ADELHOLTZ_RBRACKET 9
+#define ADELHOLTZ_GAME 10
+#define ADELHOLTZ_COLEMAK 11
+#define ADELHOLTZ_NAV_LMAGIC 12
+#define ADELHOLTZ_XTRA_RMAGIC 13
+
+
+
 / {
     behaviors {
         hm: homerow_mods {
@@ -64,6 +80,10 @@
             bindings = <&kp SPACE>, <&kp TAB>;
 
             tapping-term-ms = <175>;
+        };
+        adelholtz_process_record_user: adelholtz_process_record_user {
+            compatible = "zmk,behavior-adelholtz-process-record-user";
+            #binding-cells = <1>;
         };
     };
 
@@ -228,14 +248,14 @@
             display-name = "Symbols";
 
             // -----------------------------------------------------------------------------------------
-            // |  |   |  ^  |  °  |  `  | § |   |  ^  |  \  |  *  |     |     |  |
-            // |  | = |  %  |  !  |  "  | $ |   |  &  |  /  |  ?  |  #  |     |  |
-            // |  |   |     |     |  '  | € |   |  _  |  ¿  |  {  |  }  | "|" |  |
+            // |  |   |  ^  |  °  |  `  | § |   |     |  \  |  *  |     |     |  |
+            // |  | = |  %  |  !  |  "  | $ |   |  &  |  /  |  ?  |  #  | "|" |  |
+            // |  |   |     |     |  '  | € |   |     |     |     |     |     |  |
             //            |     |     | DEL |   | BSPC |     |    |
 
             bindings = <
-&trans  &trans        &kp DE_CARET       &kp DE_DEGREE    &kp DE_GRAVE          &kp DE_PRCNT  &none             &kp DE_BACKSLASH  &kp DE_ASTERISK  &none        &none        &trans
-&trans  &kp DE_EQUAL  &kp DE_PERCENT  &kp DE_EXCLAMATION  &kp DE_DOUBLE_QUOTES  &kp DOLLAR    &kp DE_AMPERSAND  &kp DE_SLASH      &kp DE_QUESTION  &kp DE_HASH  &kp DE_PIPE  &trans
+ &trans  &trans        &kp DE_CARET       &kp DE_DEGREE    &kp DE_GRAVE          &kp DE_PRCNT  &none             &adelholtz_process_record_user ADELHOLTZ_BACKSLASH  &kp DE_ASTERISK  &none        &none        &trans
+  &trans  &kp DE_EQUAL  &kp DE_PERCENT  &kp DE_EXCLAMATION  &kp DE_DOUBLE_QUOTES  &kp DOLLAR    &kp DE_AMPERSAND  &kp DE_SLASH      &kp DE_QUESTION  &kp DE_HASH  &adelholtz_process_record_user ADELHOLTZ_PIPE  &trans
 &trans  &none         &none           &none               &kp DE_SQT            &kp DE_EURO   &none             &none             &none            &none        &none        &trans
                                 &none            &none              &kp DELETE    &kp BACKSPACE  &none                &none
             >;
@@ -261,8 +281,8 @@
             //            |     |     | Space |   | Enter |     |    |
 
             bindings = <
-&trans  &none  &none              &none                &kp DE_LESS_THAN         &none        &none      &kp DE_GREATER_THAN       &none                 &none               &none  &trans
-&trans  &none  &kp DE_LEFT_BRACE  &kp DE_LEFT_BRACKET  &kp DE_LEFT_PARENTHESIS  &none        &none      &kp DE_RIGHT_PARENTHESIS  &kp DE_RIGHT_BRACKET  &kp DE_RIGHT_BRACE  &none  &trans
+ &trans  &none  &none              &none                &adelholtz_process_record_user ADELHOLTZ_LESS         &none        &none      &adelholtz_process_record_user ADELHOLTZ_GREATER       &none                 &none               &none  &trans
+ &trans  &none  &adelholtz_process_record_user ADELHOLTZ_LCURLY  &adelholtz_process_record_user ADELHOLTZ_LBRACKET  &kp DE_LEFT_PARENTHESIS  &none        &none      &kp DE_RIGHT_PARENTHESIS  &adelholtz_process_record_user ADELHOLTZ_RBRACKET  &adelholtz_process_record_user ADELHOLTZ_RCURLY  &none  &trans
 &trans  &none  &none              &none                &none                    &none        &none      &none                     &none                 &none               &none  &trans
                                &trans            &trans                &kp SPACE    &kp ENTER  &trans                 &trans
             >;
