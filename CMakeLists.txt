@@ -14,6 +14,11 @@ endif()
 
 if(DEFINED ZMK_APP_DIR AND EXISTS "${ZMK_APP_DIR}/include")
   zephyr_library_include_directories("${ZMK_APP_DIR}/include")
+elseif(DEFINED ZEPHYR_BASE)
+  get_filename_component(ZMK_WORKSPACE_DIR "${ZEPHYR_BASE}" DIRECTORY)
+  if(EXISTS "${ZMK_WORKSPACE_DIR}/zmk/app/include")
+    zephyr_library_include_directories("${ZMK_WORKSPACE_DIR}/zmk/app/include")
+  endif()
 endif()
 
 zephyr_library_sources_ifdef(CONFIG_ZMK_BEHAVIOR_ADELHOLTZ
