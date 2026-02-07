@@ -8,7 +8,7 @@
 #include <drivers/behavior.h>
 #include <zmk/behavior.h>
 
-#define DT_DRV_COMPAT zmk_behavior_adelholtz_process_record_user
+#define DT_DRV_COMPAT zmk_behavior_adelholtz_pru
 
 // ----- Custom key identifiers passed via binding parameter -----
 // These values are behavior-specific and should match the values you use

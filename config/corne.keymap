@@ -76,7 +76,7 @@
             tapping-term-ms = <175>;
         };
         adelholtz_pru: adelholtz_pru {
-            compatible = "zmk,behavior-adelholtz-process-record-user";
+            compatible = "zmk,behavior-adelholtz-pru";
             #binding-cells = <1>;
         };
     };
