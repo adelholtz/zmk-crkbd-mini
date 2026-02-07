@@ -2,6 +2,6 @@ name: zmk-crkbd-mini
 build:
   cmake: .
   kconfig: Kconfig
-  dts_root: .
   settings:
     board_root: .
+    dts_root: .
