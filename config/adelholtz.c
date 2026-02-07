@@ -6,6 +6,7 @@
 
 #include <zephyr/kernel.h>
 #include <drivers/behavior.h>
+#include <zmk/behavior.h>
 
 #define DT_DRV_COMPAT zmk_behavior_adelholtz_process_record_user
 
@@ -44,15 +45,6 @@ __attribute__((weak)) int adelholtz_send_string(const char *str) {
     return -ENOTSUP;
 }
 
-// ----- Keycode history (last 3) -----
-static uint16_t last_keycodes[3] = {0, 0, 0};
-
-static void update_keycode_history(uint16_t keycode) {
-    last_keycodes[2] = last_keycodes[1];
-    last_keycodes[1] = last_keycodes[0];
-    last_keycodes[0] = keycode;
-}
-
 static int send_os_string(const char *mac_ios, const char *linux_win, const char *fallback) {
     enum adelholtz_host_os os = adelholtz_get_host_os();
     if (os == ADELHOLTZ_OS_MACOS || os == ADELHOLTZ_OS_IOS) {
@@ -64,10 +56,8 @@ static int send_os_string(const char *mac_ios, const char *linux_win, const char
     return adelholtz_send_string(fallback);
 }
 
-static int on_keymap_binding_pressed(const struct device *dev,
-                                     struct zmk_behavior_binding *binding,
+static int on_keymap_binding_pressed(struct zmk_behavior_binding *binding,
                                      struct zmk_behavior_binding_event event) {
-    ARG_UNUSED(dev);
     ARG_UNUSED(event);
 
     uint16_t keycode = (uint16_t)binding->param1;
@@ -123,10 +113,8 @@ static int on_keymap_binding_pressed(const struct device *dev,
     }
 }
 
-static int on_keymap_binding_released(const struct device *dev,
-                                      struct zmk_behavior_binding *binding,
+static int on_keymap_binding_released(struct zmk_behavior_binding *binding,
                                       struct zmk_behavior_binding_event event) {
-    ARG_UNUSED(dev);
     ARG_UNUSED(binding);
     ARG_UNUSED(event);
     return ZMK_BEHAVIOR_OPAQUE;
