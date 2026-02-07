@@ -5,7 +5,7 @@
 // ZMK setup as needed.
 
 #include <zephyr/kernel.h>
-#include <zmk/behavior.h>
+#include <drivers/behavior.h>
 
 #define DT_DRV_COMPAT zmk_behavior_adelholtz_process_record_user
 
