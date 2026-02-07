@@ -2,7 +2,7 @@ description: Adelholtz custom behavior for process_record_user
 
 compatible: "zmk,apr"
 
-include: [behaviors/behavior.yaml]
+include: [one_param.yaml]
 
 properties:
   "#binding-cells":
