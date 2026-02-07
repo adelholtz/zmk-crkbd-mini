@@ -11,8 +11,8 @@ The keymap consists of 5 layers with Colemak-inspired base layout and homerow mo
 
 The primary typing layer featuring:
 - Colemak-like letter layout (Q-W-F-P-G / J-L-U-Y on top row)
-- Homerow mods on S (Alt), T (Layer 4 toggle), D (Win) on left hand
-- Homerow mods on H (Win), N (Layer 4 toggle), E (Ctrl) on right hand
+- Homerow mods on S (Alt), T (Layer 4), D (Win) on left hand
+- Homerow mods on H (Win), N (Layer 4), E (Ctrl) on right hand
 - Q key: Tap dance (Q / ESC)
 - Space key: Tap dance (Space / Tab)
 - German locale support (DE_COMMA, DE_PERIOD, DE_MINUS)
@@ -29,10 +29,10 @@ The primary typing layer featuring:
                   │ GUI │ MO1 │SPC/T│     │SHFT │ MO2 │BKSP │
                   └─────┴─────┴─────┘     └─────┴─────┴─────┘
 ```
-*Legend: Q/E = Tap Q or double-tap ESC, S/A = Hold Alt, T/4 = Layer 4 toggle, D/W = Hold Win, SPC/T = Tap Space or double-tap Tab*
+*Legend: Q/E = Tap Q or double-tap ESC, S/A = Hold Alt, T/4 = Layer 4, D/W = Hold Win, SPC/T = Tap Space or double-tap Tab*
 
-**Combos:** The base layer includes numerous combos for symbols:
-- Escape (keys 13+29), Delete (15+21)
+**Combos:** The base layer includes numerous combos for symbols (activated by pressing two keys simultaneously):
+- Escape, Delete
 - Symbols: %, =, $, #, @, \, *, /, +, -, _
 - Brackets: [, ], (, <, >, )
 
@@ -63,7 +63,7 @@ Navigation and number pad layer:
 German keyboard symbols and special characters:
 - German-specific characters: ä, ö, ü, ß, €
 - Mathematical and punctuation symbols
-- Uses APR (Auto-Print-Replace) for special characters
+- Uses APR (Auto-Print-Replace) behavior for special characters like backslash and pipe
 
 **Layout:**
 ```
@@ -99,14 +99,14 @@ Function keys, Bluetooth controls, and system functions:
                   │     │     │     │     │     │     │     │
                   └─────┴─────┴─────┘     └─────┴─────┴─────┘
 ```
-*Legend: F11/G = F11 with GUI hold, F12/S = F12 with Shift hold, UNLCK = Studio Unlock, BTCLA = BT Clear All, BOOT = Bootloader*
+*Legend: F11/G = F11 with GUI modifier hold, F12/S = F12 with Shift modifier hold, UNLCK = Studio Unlock, BTCLA = BT Clear All, BOOT = Bootloader*
 
 ### Layer 4: Brackets (EXTRA)
 **Display Name:** Brackets
 
 Dedicated layer for brackets and parentheses (accessed via homerow T/N keys):
 - All bracket types: (), [], {}, <, >
-- Uses APR for custom bracket behaviors
+- Uses APR (Auto-Print-Replace) behavior for custom bracket implementations
 
 **Layout:**
 ```
@@ -137,9 +137,9 @@ The keymap uses homerow modifications for ergonomic access to modifier keys:
 - **Left Parenthesis:** Normal = (, With Shift = <
 - **Right Parenthesis:** Normal = ), With Shift = >
 
-### Behaviors
+### Custom Behaviors
 - **Caps Word:** Activated via dedicated behavior, continues through minus and backspace
-- **APR (Auto-Print-Replace):** Custom behavior for special characters and brackets
+- **APR (Auto-Print-Replace):** Custom ZMK behavior that provides special character handling for symbols and brackets that require specific keycode sequences
 
 ## Building
 
