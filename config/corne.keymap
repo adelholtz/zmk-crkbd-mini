@@ -218,7 +218,7 @@
 &trans  &esc_q  &kp W  &kp F       &kp P    &kp G             &kp J            &kp L    &kp U          &kp Y       &mo 3      &trans
 &trans  &kp A   &kp R  &hm LALT S  &lt 4 T  &hm LEFT_WIN D    &hm RIGHT_WIN H  &lt 4 N  &hm RCTRL E    &kp I       &kp O      &trans
 &trans  &kp Z   &kp X  &kp C       &kp V    &kp B             &kp K            &kp M    &kp DE_COMMA      &kp DE_PERIOD  &kp DE_MINUS  &trans
-                       &kp DELETE    &mo 1    &space_tab        &sk RIGHT_SHIFT  &mo 2    &kp ENTER
+                       &kp BACKSPACE    &mo 1    &space_tab        &sk RIGHT_SHIFT  &mo 2    &kp ENTER
             >;
         };
 
