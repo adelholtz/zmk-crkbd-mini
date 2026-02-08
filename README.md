@@ -11,8 +11,8 @@ The keymap consists of 5 layers with Colemak-inspired base layout and homerow mo
 
 The primary typing layer featuring:
 - Colemak-like letter layout (Q-W-F-P-G / J-L-U-Y on top row)
-- Homerow mods on S (Alt), T (Layer 4), D (Win) on left hand
-- Homerow mods on H (Win), N (Layer 4), E (Ctrl) on right hand
+- Homerow mods on S (Alt), T (Brackets), D (Cmd) on left hand
+- Homerow mods on H (Cmd), N (Brackets), E (Ctrl) on right hand
 - Q key: Tap dance (Q / ESC)
 - Space key: Tap dance (Space / Tab)
 - German locale support (DE_COMMA, DE_PERIOD, DE_MINUS)
@@ -22,7 +22,7 @@ The primary typing layer featuring:
 ┌─────┬─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┬─────┐
 │     │ Q/E │  W  │  F  │  P  │  G  │     │  J  │  L  │  U  │  Y  │ MO3 │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │  A  │  R  │ S/A │ T/4 │ D/W │     │ H/W │ N/4 │ E/C │  I  │  O  │     │
+│     │  A  │  R  │S/Alt│ T/4 │ D/M │     │ H/M │ N/4 │ E/C │  I  │  O  │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┼─────┤
 │     │  Z  │  X  │  C  │  V  │  B  │     │  K  │  M  │  ,  │  .  │  -  │     │
 └─────┴─────┴─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┴─────┴─────┘
@@ -111,7 +111,7 @@ Dedicated layer for brackets and parentheses (accessed via homerow T/N keys):
 **Layout:**
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│     │     │     │  <  │     │     │     │     │  >  │     │     │     │     │
+│     │     │     │     │  <  │     │     │     │  >  │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┼─────┤
 │     │     │  {  │  [  │  (  │     │     │     │  )  │  ]  │  }  │     │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┼─────┤
