@@ -9,16 +9,6 @@
 #define ADJ 3
 #define EXTRA 4
 
-#define ADELHOLTZ_RELOAD 1
-#define ADELHOLTZ_LCURLY 2
-#define ADELHOLTZ_RCURLY 3
-#define ADELHOLTZ_PIPE 4
-#define ADELHOLTZ_BACKSLASH 5
-#define ADELHOLTZ_LESS 6
-#define ADELHOLTZ_GREATER 7
-#define ADELHOLTZ_LBRACKET 8
-#define ADELHOLTZ_RBRACKET 9
-
 / {
     behaviors {
         hm: homerow_mods {
@@ -75,11 +65,6 @@
 
             tapping-term-ms = <175>;
         };
-        apr: apr {
-            compatible = "zmk,apr";
-            #binding-cells = <1>;
-            label = "APR";
-        };
     };
 
     macros {
@@ -93,6 +78,101 @@
                 <&kp TAB>,
                 <&macro_release>,
                 <&kp LCTRL>;
+        };
+
+        // macOS browser reload (CMD+R)
+        reload: reload {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_press &kp LGUI>
+                     , <&macro_tap &kp R>
+                     , <&macro_release &kp LGUI>;
+        };
+
+        // macOS left curly brace (AltGr+8)
+        lcurly: lcurly {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_press &kp RALT>
+                     , <&macro_tap &kp N8>
+                     , <&macro_release &kp RALT>;
+        };
+
+        // macOS right curly brace (AltGr+9)
+        rcurly: rcurly {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_press &kp RALT>
+                     , <&macro_tap &kp N9>
+                     , <&macro_release &kp RALT>;
+        };
+
+        // macOS pipe (AltGr+7)
+        pipe: pipe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_press &kp RALT>
+                     , <&macro_tap &kp N7>
+                     , <&macro_release &kp RALT>;
+        };
+
+        // macOS backslash (AltGr+Shift+7)
+        backslash: backslash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_press &kp RALT &kp LSHFT>
+                     , <&macro_tap &kp N7>
+                     , <&macro_release &kp LSHFT &kp RALT>;
+        };
+
+        // macOS less than (<)
+        lesskey: lesskey {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_tap &kp LT>;
+        };
+
+        // macOS greater than (>)
+        greaterkey: greaterkey {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_tap &kp GT>;
+        };
+
+        // macOS left bracket (AltGr+5)
+        lbracket: lbracket {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_press &kp RALT>
+                     , <&macro_tap &kp N5>
+                     , <&macro_release &kp RALT>;
+        };
+
+        // macOS right bracket (AltGr+6)
+        rbracket: rbracket {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_press &kp RALT>
+                     , <&macro_tap &kp N6>
+                     , <&macro_release &kp RALT>;
         };
     };
 
@@ -249,9 +329,9 @@
             //            |     |     | DEL |   | BSPC |     |    |
 
             bindings = <
-  &trans  &trans        &kp DE_CARET       &kp DE_DEGREE    &kp DE_GRAVE          &kp DE_PRCNT  &none             &apr  ADELHOLTZ_BACKSLASH  &kp DE_ASTERISK  &none        &none        &trans
-  &trans  &kp DE_EQUAL  &kp DE_PERCENT  &kp DE_EXCLAMATION  &kp DE_DOUBLE_QUOTES  &kp DOLLAR    &kp DE_AMPERSAND  &kp DE_SLASH      &kp DE_QUESTION  &kp DE_HASH  &apr  ADELHOLTZ_PIPE  &trans
- &trans  &kp DE_A_UMLAUT         &kp DE_O_UMLAUT           &kp DE_U_UMLAUT               &kp DE_SQT            &kp DE_EURO   &none             &none             &none            &none        &none        &trans
+  &trans  &trans        &kp DE_CARET       &kp DE_DEGREE    &kp DE_GRAVE          &kp DE_PRCNT  &none             &backslash        &kp DE_ASTERISK  &none        &none   &trans
+  &trans  &kp DE_EQUAL  &kp DE_PERCENT  &kp DE_EXCLAMATION  &kp DE_DOUBLE_QUOTES  &kp DOLLAR    &kp DE_AMPERSAND  &kp DE_SLASH      &kp DE_QUESTION  &kp DE_HASH  &pipe   &trans
+ &trans  &kp DE_A_UMLAUT         &kp DE_O_UMLAUT           &kp DE_U_UMLAUT               &kp DE_SQT            &kp DE_EURO   &none             &none             &none            &none        &none   &trans
                                 &none            &none              &kp DELETE    &kp BACKSPACE  &none                &none
             >;
         };
@@ -276,10 +356,10 @@
             //            |     |     | Space |   | Enter |     |    |
 
             bindings = <
-  &trans  &none  &none              &none                &apr  ADELHOLTZ_LESS         &none        &none      &apr  ADELHOLTZ_GREATER       &none                 &none               &none  &trans
-  &trans  &none  &apr  ADELHOLTZ_LCURLY  &apr  ADELHOLTZ_LBRACKET  &kp DE_LEFT_PARENTHESIS  &none        &none      &kp DE_RIGHT_PARENTHESIS  &apr  ADELHOLTZ_RBRACKET  &apr  ADELHOLTZ_RCURLY  &none  &trans
-&trans  &none  &none              &none                &none                    &none        &none      &none                     &none                 &none               &none  &trans
-                               &trans            &trans                &kp SPACE    &kp ENTER  &trans                 &trans
+  &trans  &none  &none      &none        &lesskey                 &none        &none      &greaterkey              &none         &none       &none  &trans
+  &trans  &none  &lcurly    &lbracket    &kp DE_LEFT_PARENTHESIS  &none        &none      &kp DE_RIGHT_PARENTHESIS &rbracket     &rcurly     &none  &trans
+&trans  &none  &none      &none        &none                    &none        &none      &none                    &none         &none       &none  &trans
+                           &trans       &trans                   &kp SPACE    &kp ENTER  &trans                   &trans
             >;
         };
     };

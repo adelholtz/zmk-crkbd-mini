@@ -26,7 +26,7 @@ The primary typing layer featuring:
 ├─────┼─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┼─────┤
 │     │  Z  │  X  │  C  │  V  │  B  │     │  K  │  M  │  ,  │  .  │  -  │     │
 └─────┴─────┴─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ GUI │ MO1 │SPC/T│     │SHFT │ MO2 │BKSP │
+                  │BSPC │ MO1 │SPC/T│     │SHFT │ MO2 │ ENT │
                   └─────┴─────┴─────┘     └─────┴─────┴─────┘
 ```
 *Legend: Q/E = Tap Q or double-tap ESC, S/A = Hold Alt, T/4 = Layer 4, D/W = Hold Win, SPC/T = Tap Space or double-tap Tab*
