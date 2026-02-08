@@ -135,22 +135,24 @@
                      , <&macro_release &kp LSHFT &kp RALT>;
         };
 
-        // macOS less than (<)
+        // macOS less than (<) - German keyboard (NUBS key)
         lesskey: lesskey {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <0>;
-            bindings = <&macro_tap &kp LT>;
+            bindings = <&macro_tap &kp NUBS>;
         };
 
-        // macOS greater than (>)
+        // macOS greater than (>) - German keyboard (Shift + NUBS)
         greaterkey: greaterkey {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <0>;
-            bindings = <&macro_tap &kp GT>;
+            bindings = <&macro_press &kp LSHFT>
+                     , <&macro_tap &kp NUBS>
+                     , <&macro_release &kp LSHFT>;
         };
 
         // macOS left bracket (AltGr+5)
@@ -179,105 +181,27 @@
     combos {
         compatible = "zmk,combos";
 
-        escape {
-            bindings = <&kp ESCAPE>;
-            key-positions = <13 29>;
-        };
+        // escape {
+        //     bindings = <&kp ESCAPE>;
+        //     key-positions = <13 29>;
+        // };
 
-        delete {
-            bindings = <&kp DELETE>;
-            key-positions = <15 21>;
-        };
+        // delete {
+        //     bindings = <&kp DELETE>;
+        //     key-positions = <15 21>;
+        // };
 
-        perc {
-            bindings = <&kp PERCENT>;
-            key-positions = <5 17>;
-            layers = <0>;
-        };
+        // backslash {
+        //     bindings = <&kp BACKSLASH>;
+        //     key-positions = <26 14>;
+        //     layers = <0>;
+        // };
 
-        equal {
-            bindings = <&kp EQUAL>;
-            key-positions = <28 16>;
-            layers = <0>;
-        };
-
-        dollar {
-            bindings = <&kp DOLLAR>;
-            key-positions = <4 16>;
-            layers = <0>;
-        };
-
-        pound {
-            bindings = <&kp POUND>;
-            key-positions = <3 15>;
-            layers = <0>;
-        };
-
-        at {
-            bindings = <&kp AT>;
-            key-positions = <2 14>;
-            layers = <0>;
-        };
-
-        backslash {
-            bindings = <&kp BACKSLASH>;
-            key-positions = <26 14>;
-            layers = <0>;
-        };
-
-        star {
-            bindings = <&kp STAR>;
-            key-positions = <8 20>;
-            layers = <0>;
-        };
-
-        slash {
-            bindings = <&kp SLASH>;
-            key-positions = <32 20>;
-            layers = <0>;
-        };
-
-        plus {
-            bindings = <&kp PLUS>;
-            key-positions = <7 19>;
-            layers = <0>;
-        };
-
-        minus {
-            bindings = <&kp KP_MINUS>;
-            key-positions = <31 19>;
-            layers = <0>;
-        };
-
-        underscore {
-            bindings = <&kp UNDER>;
-            key-positions = <30 18>;
-            layers = <0>;
-        };
-
-        leftbrack {
-            bindings = <&kp LEFT_BRACKET>;
-            key-positions = <31 32>;
-            layers = <0>;
-        };
-
-        rightbrack {
-            bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <33 32>;
-            layers = <0>;
-        };
-
-        para-less {
-            bindings = <&paraless>;
-            key-positions = <20 19>;
-            layers = <0>;
-        };
-
-        para-great {
-            bindings = <&paragreat>;
-            key-positions = <20 21>;
-            layers = <0>;
-        };
+        // slash {
+        //     bindings = <&kp SLASH>;
+        //     key-positions = <32 20>;
+        //     layers = <0>;
+        // };
     };
 
     //
@@ -295,9 +219,9 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&trans  &esc_q  &kp W  &kp F       &kp P    &kp G             &kp J            &kp L    &kp U          &kp Y       &mo 3      &trans
-&trans  &kp A   &kp R  &hm LALT S  &lt 4 T  &hm LEFT_WIN D    &hm RIGHT_WIN H  &lt 4 N  &hm RCTRL E    &kp I       &kp O      &trans
-&trans  &kp Z   &kp X  &kp C       &kp V    &kp B             &kp K            &kp M    &kp DE_COMMA      &kp DE_PERIOD  &kp DE_MINUS  &trans
+&trans  &esc_q  &kp W  &kp F       &kp P    &kp G             &kp J            &kp L    &kp U          &kp Y          &mo 3         &trans
+&trans  &kp A   &kp R  &hm LALT S  &lt 4 T  &hm LEFT_WIN D    &hm RIGHT_WIN H  &lt 4 N  &hm RCTRL E    &kp I          &kp O         &trans
+&trans  &kp Z   &kp X  &kp C       &kp V    &kp B             &kp K            &kp M    &kp DE_COMMA   &kp DE_PERIOD  &kp DE_MINUS  &trans
                        &kp BACKSPACE    &mo 1    &space_tab        &sk RIGHT_SHIFT  &mo 2    &kp ENTER
             >;
         };
@@ -329,9 +253,9 @@
             //            |     |     | DEL |   | BSPC |     |    |
 
             bindings = <
-  &trans  &trans        &kp DE_CARET       &kp DE_DEGREE    &kp DE_GRAVE          &kp DE_PRCNT  &none             &backslash        &kp DE_ASTERISK  &none        &none   &trans
-  &trans  &kp DE_EQUAL  &kp DE_PERCENT  &kp DE_EXCLAMATION  &kp DE_DOUBLE_QUOTES  &kp DOLLAR    &kp DE_AMPERSAND  &kp DE_SLASH      &kp DE_QUESTION  &kp DE_HASH  &pipe   &trans
- &trans  &kp DE_A_UMLAUT         &kp DE_O_UMLAUT           &kp DE_U_UMLAUT               &kp DE_SQT            &kp DE_EURO   &none             &none             &none            &none        &none   &trans
+  &trans  &trans           &kp DE_CARET       &kp DE_DEGREE       &kp DE_GRAVE          &kp DE_PRCNT  &none             &backslash        &kp DE_ASTERISK  &none        &none   &trans
+  &trans  &kp DE_EQUAL     &kp DE_PERCENT     &kp DE_EXCLAMATION  &kp DE_DOUBLE_QUOTES  &kp DOLLAR    &kp DE_AMPERSAND  &kp DE_SLASH      &kp DE_QUESTION  &kp DE_HASH  &pipe   &trans
+  &trans  &kp DE_A_UMLAUT  &kp DE_O_UMLAUT    &kp DE_U_UMLAUT     &kp DE_SQT            &kp DE_EURO   &none             &none             &none            &none        &none   &trans
                                 &none            &none              &kp DELETE    &kp BACKSPACE  &none                &none
             >;
         };
@@ -358,7 +282,7 @@
             bindings = <
   &trans  &none  &none      &none        &lesskey                 &none        &none      &greaterkey              &none         &none       &none  &trans
   &trans  &none  &lcurly    &lbracket    &kp DE_LEFT_PARENTHESIS  &none        &none      &kp DE_RIGHT_PARENTHESIS &rbracket     &rcurly     &none  &trans
-&trans  &none  &none      &none        &none                    &none        &none      &none                    &none         &none       &none  &trans
+  &trans  &none  &none      &none        &none                    &none        &none      &none                    &none         &none       &none  &trans
                            &trans       &trans                   &kp SPACE    &kp ENTER  &trans                   &trans
             >;
         };
