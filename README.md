@@ -4,7 +4,7 @@ This repository contains the ZMK firmware configuration for a Corne (CRKBD) keyb
 
 ## Keymap Overview
 
-The keymap consists of 5 layers with Colemak-inspired base layout and homerow mods:
+The keymap consists of 6 layers with Colemak-inspired base layout and homerow mods:
 
 ### Layer 0: Base (DEF)
 **Display Name:** Base
@@ -12,7 +12,7 @@ The keymap consists of 5 layers with Colemak-inspired base layout and homerow mo
 The primary typing layer featuring:
 - Colemak-like letter layout (Q-W-F-P-G / J-L-U-Y on top row)
 - Homerow mods on S (Alt), T (Brackets), D (Cmd) on left hand
-- Homerow mods on H (Cmd), N (Brackets), E (Ctrl) on right hand
+- Homerow mods on H (Cmd), N (Brackets), E (Ctrl), L (Media) on right hand
 - Q key: Tap dance (Q / ESC)
 - Space key: Tap dance (Space / Tab)
 - German locale support (DE_COMMA, DE_PERIOD, DE_MINUS)
@@ -20,7 +20,7 @@ The primary typing layer featuring:
 **Layout:**
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│     │ Q/E │  W  │  F  │  P  │  G  │     │  J  │  L  │  U  │  Y  │ MO3 │     │
+│     │ Q/E │  W  │  F  │  P  │  G  │     │  J  │ L/5 │  U  │  Y  │ MO3 │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┼─────┤
 │     │  A  │  R  │S/Alt│ T/4 │ D/M │     │ H/M │ N/4 │ E/C │  I  │  O  │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┼─────┤
@@ -107,6 +107,8 @@ Function keys, Bluetooth controls, and system functions:
 Dedicated layer for brackets and parentheses (accessed via homerow T/N keys):
 - All bracket types: (), [], {}, <, >
 - Uses APR (Auto-Print-Replace) behavior for custom bracket implementations
+- TAB key on left thumb
+- Shift+Enter macro on right thumb for easy line breaks
 
 **Layout:**
 ```
@@ -117,11 +119,41 @@ Dedicated layer for brackets and parentheses (accessed via homerow T/N keys):
 ├─────┼─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┼─────┤
 │     │     │     │     │     │     │     │     │     │     │     │     │     │
 └─────┴─────┴─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │     │     │ SPC │     │ ENT │     │     │
+                  │     │     │ TAB │     │S+ENT│     │     │
+                  └─────┴─────┴─────┘     └─────┴─────┴─────┘
+```
+*Legend: S+ENT = Shift+Enter macro*
+
+### Layer 5: Media (MEDIA)
+**Display Name:** Media
+
+Media controls layer with playback and volume controls:
+- Media playback: Mute, Stop, Play/Pause, Previous, Next
+- Volume controls: Volume Up, Volume Down
+- Right side disabled (all &none)
+
+**Layout:**
+```
+┌─────┬─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┬─────┐
+│     │     │MUTE │STOP │VOL+ │     │     │     │     │     │     │     │     │
+├─────┼─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┼─────┤
+│     │     │PREV │PLAY │NEXT │     │     │     │     │     │     │     │     │
+├─────┼─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┼─────┤
+│     │     │     │     │VOL- │     │     │     │     │     │     │     │     │
+└─────┴─────┴─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┴─────┴─────┘
+                  │     │     │     │     │     │     │     │
                   └─────┴─────┴─────┘     └─────┴─────┴─────┘
 ```
 
 ## Special Features
+
+### Macros
+The keymap includes several custom macros for enhanced functionality:
+- **Browser Tab:** Ctrl+Tab for switching browser tabs
+- **Reload:** CMD+R for browser reload (macOS)
+- **Bracket Macros:** lcurly (AltGr+8), rcurly (AltGr+9), lbracket (AltGr+5), rbracket (AltGr+6)
+- **Special Characters:** pipe (AltGr+7), backslash (AltGr+Shift+7), lesskey (<), greaterkey (>)
+- **Shift+Enter:** Combined Shift+Enter in a single keypress for easy line breaks without submission
 
 ### Homerow Mods
 The keymap uses homerow modifications for ergonomic access to modifier keys:
