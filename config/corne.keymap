@@ -231,9 +231,9 @@
             // | GUI | CTRL | SHFT | LWR | SPC |   | ENT | RSE  | BKSP | ALT | ESC |
 
             bindings = <
-&trans  &esc_q  &kp W  &kp F       &kp P    &kp G             &kp J            &lt 5 L    &kp U          &kp Y          &mo 3         &trans
+&trans  &esc_q  &kp W  &kp F       &kp P    &kp G             &kp J            &lt 5 L    &kp U          &kp DE_Y          &mo 3         &trans
 &trans  &kp A   &kp R  &hm LALT S  &lt 4 T  &hm LEFT_WIN D    &hm RIGHT_WIN H  &lt 4 N  &hm RCTRL E    &kp I          &kp O         &trans
-&trans  &kp Z   &kp X  &kp C       &kp V    &kp B             &kp K            &kp M    &kp DE_COMMA   &kp DE_PERIOD  &kp DE_MINUS  &trans
+&trans  &kp DE_Z   &kp X  &kp C       &kp V    &kp B             &kp K            &kp M    &kp DE_COMMA   &kp DE_PERIOD  &kp DE_MINUS  &trans
                        &kp BACKSPACE    &mo 1    &space_tab        &sk RIGHT_SHIFT  &mo 2    &kp ENTER
             >;
         };
