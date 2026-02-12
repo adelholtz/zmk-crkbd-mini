@@ -1,0 +1,16 @@
+# Copyright (c) 2022 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIELD_NICE_VIEW_ADAPTER
+
+if ZMK_DISPLAY
+
+config SPI
+    default y
+
+config IL0323
+    default y
+
+endif # ZMK_DISPLAY
+
+endif # SHIELD_NICE_VIEW_ADAPTER
